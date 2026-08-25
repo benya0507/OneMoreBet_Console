@@ -2,38 +2,60 @@ import java.awt.*;
 import java.util.Scanner;
 
 public class Main {
-    private static void PrintMenu() {
-        for (int i = 1; i <= 10; i++) {
-            if (i == 1 || i == 10){
-                System.out.print("|");
-                for (int j = 1; j <= 40; j++) {
-                    System.out.print("-");
-                }
-                System.out.println("|");
-            }
 
-            else {
-                if (i == 3) {
-                    System.out.print("|");
-                    System.out.print("         Welcome to OneMoreBet!         ");
-                }
-                if (i != 3) {
-                    System.out.print("|");
-                }
-                for (int j = 1; j <= 40; j++) {
-                    if (i != 3) {
-                        System.out.print(" ");
-                    }
-                }
-                if (i != 3) {
-                System.out.println("|");
-                }
-            }
+    public static void ClearScreen(){
+        for (int i = 1; i <= 50; i++){
+            System.out.println();
         }
+    }
+    private static void PrintMenu() {
+        System.out.println("|-----------------------------------|");
+        System.out.println("|       Welcome to OneMoreBet!      |");
+        System.out.println("|-----------------------------------|");
+        System.out.println("|         Choose an option:         |");
+        System.out.println("|-----------------------------------|");
+        System.out.println("| 1. Start playing                  |");
+        System.out.println("| 2. View Balance                   |");
+        System.out.println("| 3. Exit game                      |");
+        System.out.println("|-----------------------------------|");
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Main.PrintMenu();
+        boolean isRunning = true;
+
+        System.out.println();
+
+        while (isRunning) {
+            PrintMenu();
+
+            if (sc.hasNextInt()) {
+                int option = sc.nextInt();
+                switch (option) {
+                    case 1:
+                        Main.ClearScreen();
+                        System.out.println("Entering game page...");
+                        //rest of the code
+                        break;
+                    case 2:
+                        Main.ClearScreen();
+                        System.out.println("Entering balance page...");
+                        //rest of the code
+                        break;
+                    case 3:
+                        Main.ClearScreen();
+                        System.out.println("Exiting application...");
+                        isRunning = false;
+                        break;
+                    default:
+                        System.out.println("Invalid option");
+                        break;
+                }
+            } else {
+                System.out.println("Invalid option, please enter a number 1-3");
+                sc.nextLine();
+            }
+        }
+        sc.close();
     }
 
 }
