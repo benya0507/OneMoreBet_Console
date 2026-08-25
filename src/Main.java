@@ -25,7 +25,7 @@ public class Main {
                         System.out.print(" ");
                     }
                 }
-                if (i != 4) {
+                if (i != 3) {
                 System.out.println("|");
                 }
             }
