@@ -8,7 +8,7 @@ public class Main {
             System.out.println();
         }
     }
-    private static void PrintMenu() {
+    private static void printMenu() {
         System.out.println("|-----------------------------------|");
         System.out.println("|       Welcome to OneMoreBet!      |");
         System.out.println("|-----------------------------------|");
@@ -26,7 +26,7 @@ public class Main {
         System.out.println();
 
         while (isRunning) {
-            PrintMenu();
+            printMenu();
 
             if (sc.hasNextInt()) {
                 int option = sc.nextInt();
