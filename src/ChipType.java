@@ -9,7 +9,7 @@ public enum ChipType{
     FIVE_HUNDRED(500),
     THOUSAND(1000);
 
-    private int value;
+    private final int value;
 
     ChipType(int value){
         this.value = value;
