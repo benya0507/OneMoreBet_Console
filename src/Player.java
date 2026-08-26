@@ -26,7 +26,7 @@ public class Player {
 
     public void removeChip(ChipType chipType, int amount) {
         if (chips.containsKey(chipType) && chips.get(chipType) >= amount) {
-            chips.remove(chipType, chips.get(chipType) - amount);
+            chips.put(chipType, chips.get(chipType) - amount);
         }
         else  {
             System.out.println("Not enough chips of type: " + chipType);
