@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void ClearScreen(){
+    public static void clearScreen(){
         for (int i = 1; i <= 50; i++){
             System.out.println();
         }
@@ -32,17 +32,17 @@ public class Main {
                 int option = sc.nextInt();
                 switch (option) {
                     case 1:
-                        Main.ClearScreen();
+                        Main.clearScreen();
                         System.out.println("Entering game page...");
                         //rest of the code
                         break;
                     case 2:
-                        Main.ClearScreen();
+                        Main.clearScreen();
                         System.out.println("Entering balance page...");
                         //rest of the code
                         break;
                     case 3:
-                        Main.ClearScreen();
+                        Main.clearScreen();
                         System.out.println("Exiting application...");
                         isRunning = false;
                         break;
