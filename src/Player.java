@@ -33,4 +33,8 @@ public class Player {
         }
     }
 
+    public int getBalance() {
+        return this.balance;
+    }
+
 }
