@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class Player {
@@ -8,26 +9,27 @@ public class Player {
     public Player(String name, int balance) {
         this.name = name;
         this.balance = balance;
+        this.chips = new HashMap<>();
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void getName() {
-        System.out.println(this.name);
+    public String getName() {
+        return this.name;
     }
 
-    private void addChip(ChipType chipType, int amount) {
-        chips.put(chipType, amount);
+    public void addChip(ChipType chipType, int amount) {
+        chips.put(chipType, chips.getOrDefault(chipType, 0) + amount);
     }
 
-    private void removeChip(ChipType chipType, int amount) {
+    public void removeChip(ChipType chipType, int amount) {
         if (chips.containsKey(chipType) && chips.get(chipType) >= amount) {
-            chips.remove(chipType);
+            chips.remove(chipType, chips.get(chipType) - amount);
         }
         else  {
-            System.out.println("Chip " + chipType + " not found / not enough");
+            System.out.println("Not enough chips of type: " + chipType);
         }
     }
 
