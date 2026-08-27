@@ -28,32 +28,34 @@ public class SlotMachine {
         boolean twoEqual = firstSymbol.equals(secondSymbol) || thirdSymbol.equals(secondSymbol) || firstSymbol.equals(thirdSymbol);
         boolean threeEqual = firstSymbol.equals(secondSymbol) && thirdSymbol.equals(secondSymbol);
         printSymbols(firstSymbol, secondSymbol, thirdSymbol);
-        if(firstSymbol.equals("💎") || secondSymbol.equals("💎") || thirdSymbol.equals("💎")) {
-            if (threeEqual){
-                return 5;
+
+        if(threeEqual){
+            switch (firstSymbol) {
+                case "💎":
+                    return 5;
+                case "🔔", "⭐":
+                    return 4;
+                case "🍋" , "🍒":
+                    return 3;
             }
-            else if (twoEqual){
-                return 3;
+        } else if(twoEqual){
+            String pairSymbol;
+            if(firstSymbol.equals(secondSymbol) ||  firstSymbol.equals(thirdSymbol)){
+                pairSymbol = firstSymbol;
+            } else pairSymbol = secondSymbol;
+
+            switch (pairSymbol) {
+                case "💎":
+                    return 3;
+                case "🔔", "⭐", "🍋", "🍒":
+                    return 2;
             }
-            else return 1;
-        } else if ((firstSymbol.equals("🔔") || firstSymbol.equals("⭐")) || (secondSymbol.equals("🔔") || secondSymbol.equals("⭐")) || (thirdSymbol.equals("🔔") || thirdSymbol.equals("⭐"))){
-            if (threeEqual){
-                return 4;
-            }
-            else if (twoEqual){
-                return 2;
-            }
-            else return 0;
-        } else if ((firstSymbol.equals("🍒") || firstSymbol.equals("🍋")) || (secondSymbol.equals("🍒") || secondSymbol.equals("🍋")) || (thirdSymbol.equals("🍒") || thirdSymbol.equals("🍋"))){
-            if (threeEqual){
-                return 3;
-            }
-            else if (twoEqual){
-                return 2;
-            }
-            else return 0;
-        } else {
-            return 0;
         }
+        else {
+            if(firstSymbol.equals("💎") || secondSymbol.equals("💎") || thirdSymbol.equals("💎")) {
+                return 1;
+            }
+        }
+        return 0;
     }
 }
