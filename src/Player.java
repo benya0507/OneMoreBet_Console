@@ -13,11 +13,11 @@ public class Player {
     }
 
     public int calculateChipValue(){
-        int allValue = 0;
+        int allChipValue = 0;
         for (Map.Entry<ChipType, Integer> entry : chips.entrySet()) {
-            allValue += entry.getKey().getValue() * entry.getValue();
+            allChipValue += entry.getKey().getValue() * entry.getValue();
         }
-        return allValue;
+        return allChipValue;
     }
 
     public void setName(String name) {
