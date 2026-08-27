@@ -20,9 +20,6 @@ public class Player {
         return allChipValue;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getName() {
         return this.name;
