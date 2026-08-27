@@ -105,7 +105,7 @@ public class Main {
                     case 1:
                         Main.clearScreen();
                         System.out.println("How many chips would you like to buy?");
-                        //needs to be finished
+                        //needs to be finished!!
                 }
             }
         }
