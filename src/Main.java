@@ -16,8 +16,9 @@ public class Main {
         System.out.println("|         Choose an option:         |");
         System.out.println("|-----------------------------------|");
         System.out.println("| 1. Start playing                  |");
-        System.out.println("| 2. View Balance                   |");
-        System.out.println("| 3. Exit game                      |");
+        System.out.println("| 2. View balance                   |");
+        System.out.println("| 3. Open chip store                |");
+        System.out.println("| 4. Exit game                      |");
         System.out.println("|-----------------------------------|");
     }
 
@@ -44,15 +45,19 @@ public class Main {
                 switch (option) {
                     case 1:
                         Main.clearScreen();
-                        System.out.println("Entering game page...");
+                        System.out.println("Entering game...");
                         //rest of the code
                         break;
                     case 2:
                         Main.clearScreen();
                         System.out.println("Entering balance page...");
                         Main.printBalancePage();
-                        break;
                     case 3:
+                        Main.clearScreen();
+                        System.out.println("Entering store...");
+                        //rest of the code
+                        break;
+                    case 4:
                         Main.clearScreen();
                         System.out.println("Exiting application...");
                         isRunning = false;

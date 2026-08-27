@@ -18,6 +18,7 @@ public class SlotMachine {
     public void printSymbols(String symbol1,  String symbol2, String symbol3) {
         System.out.println("|" +  symbol1 + "|" + symbol2 + "|" + symbol3 + "|");
     }
+
     public int spin(){
         int randomNumOne = (int) (Math.random() * this.symbols.size());
         int randomNumTwo = (int) (Math.random() * this.symbols.size());
@@ -28,7 +29,6 @@ public class SlotMachine {
         boolean twoEqual = firstSymbol.equals(secondSymbol) || thirdSymbol.equals(secondSymbol) || firstSymbol.equals(thirdSymbol);
         boolean threeEqual = firstSymbol.equals(secondSymbol) && thirdSymbol.equals(secondSymbol);
         printSymbols(firstSymbol, secondSymbol, thirdSymbol);
-
         if(threeEqual){
             switch (firstSymbol) {
                 case "💎":
@@ -48,7 +48,7 @@ public class SlotMachine {
                 case "💎":
                     return 3;
                 case "🔔", "⭐", "🍋", "🍒":
-                    return 2;
+                    return 1;
             }
         }
         else {
@@ -61,6 +61,8 @@ public class SlotMachine {
 
 
     public void bet(Player player, ChipType chipType, int amount){
-
+        int returnMoney = chipType.getValue()*amount;
+        player.removeChip(chipType, amount);
+        player.addChip(chipType, spin()*amount);
     }
 }
