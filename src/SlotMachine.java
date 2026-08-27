@@ -15,7 +15,9 @@ public class SlotMachine {
         this.symbols.add("💎");
     }
 
-
+    public void printSymbols(String symbol1,  String symbol2, String symbol3) {
+        System.out.println("|" +  symbol1 + "|" + symbol2 + "|" + symbol3 + "|");
+    }
     public int spin(){
         int randomNumOne = (int) (Math.random() * this.symbols.size());
         int randomNumTwo = (int) (Math.random() * this.symbols.size());
@@ -25,15 +27,16 @@ public class SlotMachine {
         String thirdSymbol = symbols.get(randomNumThree);
         boolean twoEqual = firstSymbol.equals(secondSymbol) || thirdSymbol.equals(secondSymbol) || firstSymbol.equals(thirdSymbol);
         boolean threeEqual = firstSymbol.equals(secondSymbol) && thirdSymbol.equals(secondSymbol);
-        if(firstSymbol.equals(secondSymbol) && thirdSymbol.equals(secondSymbol) && firstSymbol.equals("🍒") || firstSymbol.equals("🍋")){
+        printSymbols(firstSymbol, secondSymbol, thirdSymbol);
+        if(firstSymbol.equals("💎") || secondSymbol.equals("💎") || thirdSymbol.equals("💎")) {
             if (threeEqual){
-                return 3;
+                return 5;
             }
             else if (twoEqual){
-                return 2;
+                return 3;
             }
-            else return 0;
-        } else if (firstSymbol.equals(secondSymbol) && thirdSymbol.equals(secondSymbol) && firstSymbol.equals("🔔") || firstSymbol.equals("⭐")){
+            else return 1;
+        } else if ((firstSymbol.equals("🔔") || firstSymbol.equals("⭐")) || (secondSymbol.equals("🔔") || secondSymbol.equals("⭐")) || (thirdSymbol.equals("🔔") || thirdSymbol.equals("⭐"))){
             if (threeEqual){
                 return 4;
             }
@@ -41,8 +44,16 @@ public class SlotMachine {
                 return 2;
             }
             else return 0;
+        } else if ((firstSymbol.equals("🍒") || firstSymbol.equals("🍋")) || (secondSymbol.equals("🍒") || secondSymbol.equals("🍋")) || (thirdSymbol.equals("🍒") || thirdSymbol.equals("🍋"))){
+            if (threeEqual){
+                return 3;
+            }
+            else if (twoEqual){
+                return 2;
+            }
+            else return 0;
+        } else {
+            return 0;
         }
-
-        //System.out.println("|" +  firstSymbol + "|" + secondSymbol + "|" + thirdSymbol + "|");
     }
 }
