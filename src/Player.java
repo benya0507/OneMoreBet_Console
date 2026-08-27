@@ -31,13 +31,17 @@ public class Player {
         chips.put(chipType, chips.getOrDefault(chipType, 0) + amount);
     }
 
-    public void removeChip(ChipType chipType, int amount) {
+    public boolean removeChip(ChipType chipType, int amount) {
+        boolean successRemoval;
         if (chips.containsKey(chipType) && chips.get(chipType) >= amount) {
             chips.put(chipType, chips.get(chipType) - amount);
+            successRemoval = true;
         }
         else  {
             System.out.println("Not enough chips of type: " + chipType);
+            successRemoval = false;
         }
+        return successRemoval;
     }
 
     public int getBalance() {
