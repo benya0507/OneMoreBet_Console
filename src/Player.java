@@ -3,20 +3,21 @@ import java.util.Map;
 
 public class Player {
     private String name;
-    private int balance;
+    private int cashBalance;
     private Map<ChipType, Integer> chips;
 
-    public Player(String name, int balance) {
+    public Player(String name, int cashbalance) {
         this.name = name;
-        this.balance = balance;
+        this.cashBalance = cashbalance;
         this.chips = new HashMap<>();
     }
 
-    public int calculateBalance(){
-        for(ChipType chipType : chips.keySet()){
-            balance += chips.get(chipType);
+    public int calculateChipValue(){
+        int allValue = 0;
+        for (Map.Entry<ChipType, Integer> entry : chips.entrySet()) {
+            allValue += entry.getKey().getValue() * entry.getValue();
         }
-        return balance;
+        return allValue;
     }
 
     public void setName(String name) {
@@ -45,7 +46,7 @@ public class Player {
     }
 
     public int getBalance() {
-        return this.balance;
+        return this.cashBalance;
     }
 
 }
