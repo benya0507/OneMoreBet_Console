@@ -8,6 +8,7 @@ public class Main {
             System.out.println();
         }
     }
+
     private static void printMainMenu() {
         System.out.println("|-----------------------------------|");
         System.out.println("|       Welcome to OneMoreBet!      |");
@@ -18,6 +19,16 @@ public class Main {
         System.out.println("| 2. View Balance                   |");
         System.out.println("| 3. Exit game                      |");
         System.out.println("|-----------------------------------|");
+    }
+
+    private static void printBalancePage(){
+        System.out.println("|-----------------------------------|");
+        System.out.println("|             OneMoreBet            |");
+        System.out.println("|-----------------------------------|");
+        System.out.println("|           Your balance:           |");
+        System.out.println("|                                   |");
+
+
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -39,7 +50,7 @@ public class Main {
                     case 2:
                         Main.clearScreen();
                         System.out.println("Entering balance page...");
-                        //rest of the code
+                        Main.printBalancePage();
                         break;
                     case 3:
                         Main.clearScreen();

@@ -58,4 +58,9 @@ public class SlotMachine {
         }
         return 0;
     }
+
+
+    public void bet(Player player, ChipType chipType, int amount){
+
+    }
 }

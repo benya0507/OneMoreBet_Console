@@ -12,6 +12,13 @@ public class Player {
         this.chips = new HashMap<>();
     }
 
+    public int calculateBalance(){
+        for(ChipType chipType : chips.keySet()){
+            balance += chips.get(chipType);
+        }
+        return balance;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
