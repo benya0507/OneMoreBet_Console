@@ -43,7 +43,7 @@ public class Player {
     }
 
     public int getChipAmount(ChipType chipType) {
-        return chips.get(chipType);
+        return chips.getOrDefault(chipType, 0);
     }
 
     public int getBalance() {
