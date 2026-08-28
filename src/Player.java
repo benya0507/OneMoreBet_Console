@@ -42,6 +42,10 @@ public class Player {
         return successRemoval;
     }
 
+    public int getChipAmount(ChipType chipType) {
+        return chips.get(chipType);
+    }
+
     public int getBalance() {
         return this.cashBalance;
     }

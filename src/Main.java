@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.Scanner;
 
 public class Main {
@@ -52,6 +51,7 @@ public class Main {
         System.out.println("|-----------------------------------|");
         System.out.println("|        Welcome, " + player.getName() + "!");
         System.out.println("|-----------------------------------|");
+        System.out.println("|           Chip buy page           |");
         System.out.println("|         Select chip value         |");
         System.out.println("|-----------------------------------|");
         System.out.println("| 1. 1$                             |");
@@ -63,6 +63,24 @@ public class Main {
         System.out.println("| 7. 500$                           |");
         System.out.println("| 8. 1000$                          |");
         System.out.println("|-----------------------------------|");
+    }
+
+    private static void printSellChipPage(Player player) {
+            System.out.println("|-----------------------------------|");
+            System.out.println("|        Welcome, " + player.getName() + "!");
+            System.out.println("|-----------------------------------|");
+            System.out.println("|          Chip sell page           |");
+            System.out.println("|         Select chip value         |");
+            System.out.println("|-----------------------------------|");
+            System.out.println("| 1. 1$                             |");
+            System.out.println("| 2. 5$                             |");
+            System.out.println("| 3. 10$                            |");
+            System.out.println("| 4. 25$                            |");
+            System.out.println("| 5. 50$                            |");
+            System.out.println("| 6. 100$                           |");
+            System.out.println("| 7. 500$                           |");
+            System.out.println("| 8. 1000$                          |");
+            System.out.println("|-----------------------------------|");
     }
 
     private static void runStorePage(Player player, Scanner scanner){
@@ -158,7 +176,89 @@ public class Main {
                                 System.out.println("Invalid option");
                                 break;
                         }
-
+                    case 2:
+                        Main.clearScreen();
+                        printSellChipPage(player);
+                        int sellValueOption = scanner.nextInt();
+                        System.out.print("Enter the amount of chips you would like to buy: ");
+                        int sellAmountOption = scanner.nextInt();
+                        switch (sellValueOption) {
+                            case 1:
+                                if (player.getChipAmount(ChipType.ONE) > sellAmountOption) {
+                                    player.removeChip(ChipType.ONE, sellAmountOption);
+                                    player.addCashToBalance(sellAmountOption * ChipType.ONE.getValue());
+                                } else {
+                                    System.out.println("Insufficient balance, going back to main menu.");
+                                    storePageIsRunning = false;
+                                }
+                                break;
+                            case 2:
+                                if (player.getChipAmount(ChipType.FIVE) > sellAmountOption) {
+                                    player.removeChip(ChipType.FIVE, sellAmountOption);
+                                    player.addCashToBalance(sellAmountOption * ChipType.FIVE.getValue());
+                                } else {
+                                    System.out.println("Insufficient balance, going back to main menu.");
+                                    storePageIsRunning = false;
+                                }
+                                break;
+                            case 3:
+                                if (player.getChipAmount(ChipType.TEN) > sellAmountOption) {
+                                    player.removeChip(ChipType.TEN, sellAmountOption);
+                                    player.addCashToBalance(sellAmountOption * ChipType.TEN.getValue());
+                                } else {
+                                    System.out.println("Insufficient balance, going back to main menu.");
+                                    storePageIsRunning = false;
+                                }
+                                break;
+                            case 4:
+                                if (player.getChipAmount(ChipType.TWENTY_FIVE) > sellAmountOption) {
+                                    player.removeChip(ChipType.TWENTY_FIVE, sellAmountOption);
+                                    player.addCashToBalance(sellAmountOption * ChipType.TWENTY_FIVE.getValue());
+                                } else {
+                                    System.out.println("Insufficient balance, going back to main menu.");
+                                    storePageIsRunning = false;
+                                }
+                                break;
+                            case 5:
+                                if (player.getChipAmount(ChipType.FIFTY) > sellAmountOption) {
+                                    player.removeChip(ChipType.FIFTY, sellAmountOption);
+                                    player.addCashToBalance(sellAmountOption * ChipType.FIFTY.getValue());
+                                } else {
+                                    System.out.println("Insufficient balance, going back to main menu.");
+                                    storePageIsRunning = false;
+                                }
+                                break;
+                            case 6:
+                                if (player.getChipAmount(ChipType.HUNDRED) > sellAmountOption) {
+                                    player.removeChip(ChipType.HUNDRED, sellAmountOption);
+                                    player.addCashToBalance(sellAmountOption * ChipType.HUNDRED.getValue());
+                                } else {
+                                    System.out.println("Insufficient balance, going back to main menu.");
+                                    storePageIsRunning = false;
+                                }
+                                break;
+                            case 7:
+                                if (player.getChipAmount(ChipType.FIVE_HUNDRED) > sellAmountOption) {
+                                    player.removeChip(ChipType.FIVE_HUNDRED, sellAmountOption);
+                                    player.addCashToBalance(sellAmountOption * ChipType.FIVE_HUNDRED.getValue());
+                                } else {
+                                    System.out.println("Insufficient balance, going back to main menu.");
+                                    storePageIsRunning = false;
+                                }
+                                break;
+                            case 8:
+                                if (player.getChipAmount(ChipType.THOUSAND) > sellAmountOption) {
+                                    player.removeChip(ChipType.THOUSAND, sellAmountOption);
+                                    player.addCashToBalance(sellAmountOption * ChipType.THOUSAND.getValue());
+                                } else {
+                                    System.out.println("Insufficient balance, going back to main menu.");
+                                    storePageIsRunning = false;
+                                }
+                                break;
+                            default:
+                                System.out.println("Invalid option");
+                                break;
+                        }
                 }
             }
         }
