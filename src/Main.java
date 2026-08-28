@@ -105,9 +105,14 @@ public class Main {
                     case 1:
                         Main.clearScreen();
                         printBuyChipPage(player);
+                        int amountOption = 1;
                         int valueOption = scanner.nextInt();
-                        System.out.print("Enter the amount of chips you would like to buy: ");
-                        int amountOption = scanner.nextInt();
+                        if (valueOption >= 1 && valueOption <= 8) {
+                            System.out.print("Enter the amount of chips you would like to buy: ");
+                            amountOption = scanner.nextInt();
+                        }else {
+                            storePageIsRunning = false;
+                        }
                         switch (valueOption) {
                             case 1:
                                 if (player.getBalance() >= amountOption * ChipType.ONE.getValue()) {
@@ -116,7 +121,6 @@ public class Main {
                                 } else {
                                     System.out.println("Insufficient balance, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 2:
@@ -126,7 +130,6 @@ public class Main {
                                 } else {
                                     System.out.println("Insufficient balance, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 3:
@@ -136,7 +139,6 @@ public class Main {
                                 } else {
                                     System.out.println("Insufficient balance, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 4:
@@ -146,7 +148,6 @@ public class Main {
                                 } else {
                                     System.out.println("Insufficient balance, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 5:
@@ -156,7 +157,6 @@ public class Main {
                                 } else {
                                     System.out.println("Insufficient balance, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 6:
@@ -166,7 +166,6 @@ public class Main {
                                 } else {
                                     System.out.println("Insufficient balance, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 7:
@@ -176,7 +175,6 @@ public class Main {
                                 } else {
                                     System.out.println("Insufficient balance, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 8:
@@ -186,7 +184,6 @@ public class Main {
                                 } else {
                                     System.out.println("Insufficient balance, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 9:
@@ -200,9 +197,14 @@ public class Main {
                     case 2:
                         Main.clearScreen();
                         printSellChipPage(player);
+                        int sellAmountOption = 1;
                         int sellValueOption = scanner.nextInt();
-                        System.out.print("Enter the amount of chips you would like to sell: ");
-                        int sellAmountOption = scanner.nextInt();
+                        if (sellValueOption >= 1 && sellValueOption <= 8) {
+                            System.out.print("Enter the amount of chips you would like to buy: ");
+                            sellAmountOption = scanner.nextInt();
+                        }else {
+                            storePageIsRunning = false;
+                        }
                         switch (sellValueOption) {
                             case 1:
                                 if (player.getChipAmount(ChipType.ONE) >= sellAmountOption) {
@@ -211,7 +213,6 @@ public class Main {
                                 } else {
                                     System.out.println("Not enough chips, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 2:
@@ -221,7 +222,6 @@ public class Main {
                                 } else {
                                     System.out.println("Not enough chips, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 3:
@@ -231,7 +231,6 @@ public class Main {
                                 } else {
                                     System.out.println("Not enough chips, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 4:
@@ -241,7 +240,6 @@ public class Main {
                                 } else {
                                     System.out.println("Not enough chips, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 5:
@@ -251,7 +249,6 @@ public class Main {
                                 } else {
                                     System.out.println("Not enough chips, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 6:
@@ -261,7 +258,6 @@ public class Main {
                                 } else {
                                     System.out.println("Not enough chips, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
                                 }
                                 break;
                             case 7:
@@ -271,7 +267,7 @@ public class Main {
                                 } else {
                                     System.out.println("Not enough chips, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
+
                                 }
                                 break;
                             case 8:
@@ -281,7 +277,7 @@ public class Main {
                                 } else {
                                     System.out.println("Not enough chips, going back to menu.");
                                     Thread.sleep(5000);
-                                    storePageIsRunning = false;
+
                                 }
                                 break;
                             case 9:
@@ -342,14 +338,15 @@ public class Main {
 
                     slotmachine.bet(player,selectedChip,amountOfChips);
                     System.out.println("Do you want to spin again with the same bet? Y/N");
-                    String answer = scanner.nextLine();
-                    if (answer.equalsIgnoreCase("Y")) {
+                    String answer = scanner.next();
+                    while (answer.equalsIgnoreCase("Y")) {
                         slotmachine.bet(player,selectedChip,amountOfChips);
-                    }else {
-
-                        Thread.sleep(5000);
-                        gameIsRunning = false;
+                        System.out.println("Do you want to spin again with the same bet? Y/N");
+                        answer = scanner.next();
                     }
+
+                    Thread.sleep(5000);
+                    gameIsRunning = false;
                 }
 
             }

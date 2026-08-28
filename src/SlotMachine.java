@@ -65,7 +65,7 @@ public class SlotMachine {
             System.out.println("Starting spin!");
             int wonChipAmount = spin()*amount;
             player.addChip(chipType, wonChipAmount);
-            System.out.println("You won " +  wonChipAmount + " chips");
+            System.out.println("You won " +  wonChipAmount + " of "+ chipType + " chips");
 
         } else {
             System.out.println("Not enough chips");
