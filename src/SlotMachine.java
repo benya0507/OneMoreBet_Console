@@ -48,7 +48,7 @@ public class SlotMachine {
                 case "💎":
                     return 3;
                 case "🔔", "⭐", "🍋", "🍒":
-                    return 1;
+                    return 2;
             }
         }
         else {

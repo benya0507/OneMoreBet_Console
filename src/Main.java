@@ -288,6 +288,52 @@ public class Main {
             }
         }
     }
+
+    private static void selectChipSizeUI() {
+        System.out.println("|-----------------------------------|");
+        System.out.println("|                                   |");
+        System.out.println("|            OneMoreBet             |");
+        System.out.println("|                                   |");
+        System.out.println("|-----------------------------------|");
+        System.out.println("|            Bet amount:            |");
+        System.out.println("|         Select chip size          |");
+        System.out.println("|-----------------------------------|");
+        System.out.println("| 1. 1$                             |");
+        System.out.println("| 2. 5$                             |");
+        System.out.println("| 3. 10$                            |");
+        System.out.println("| 4. 25$                            |");
+        System.out.println("| 5. 50$                            |");
+        System.out.println("| 6. 100$                           |");
+        System.out.println("| 7. 500$                           |");
+        System.out.println("| 8. 1000$                          |");
+        System.out.println("| 9. Exit to main menu              |");
+        System.out.println("|-----------------------------------|");
+
+    }
+
+    private static void gameInterface(Player player, Scanner scanner, SlotMachine slotmachine) throws InterruptedException {
+        boolean gameIsRunning = true;
+        while (gameIsRunning) {
+            selectChipSizeUI();
+            if (scanner.hasNextInt()){
+                int option = scanner.nextInt();
+                if (option == 9) {
+                    gameIsRunning = false;
+                }
+                else if (option >= 1 && option <= 8) {
+                    System.out.println("Write the amount of chips you want to bet of "+ ChipType.values()[option - 1]);
+                    int amountOfChips = scanner.nextInt();
+                    ChipType selectedChip = ChipType.values()[option - 1];
+                    //int totalCost = amountOfChips * selectedChip.getValue();
+
+                    slotmachine.bet(player,selectedChip,amountOfChips);
+                    Thread.sleep(5000);
+                    gameIsRunning = false;
+                }
+
+            }
+        }
+    }
     public static void main(String[] args) throws InterruptedException {
 
         Player player = new Player("Bence", 5000);
@@ -308,12 +354,12 @@ public class Main {
                     case 1:
                         Main.clearScreen();
                         System.out.println("Entering game...");
-                        //rest of the code
+                        gameInterface(player, sc, sm);
                         break;
                     case 2:
                         Main.clearScreen();
                         System.out.println("Entering balance page...");
-                        Main.printBalancePage(player);
+                        printBalancePage(player);
                         break;
                     case 3:
                         Main.clearScreen();
