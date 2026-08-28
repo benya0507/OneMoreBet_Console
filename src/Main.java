@@ -85,9 +85,6 @@ public class Main {
     }
 
     private static void runStorePage(Player player, Scanner scanner) throws InterruptedException {
-
-
-
         boolean storePageIsRunning =  true;
         while (storePageIsRunning) {
             printStoreChipPage(player);
@@ -102,7 +99,7 @@ public class Main {
                         int amountOption = scanner.nextInt();
                         switch (valueOption) {
                             case 1:
-                                if (player.getBalance() > amountOption * ChipType.ONE.getValue()) {
+                                if (player.getBalance() >= amountOption * ChipType.ONE.getValue()) {
                                     player.addChip(ChipType.ONE, amountOption);
                                     player.removeCashFromBalance(amountOption * ChipType.ONE.getValue());
                                 } else {
@@ -112,7 +109,7 @@ public class Main {
                                 }
                                 break;
                             case 2:
-                                if (player.getBalance() > amountOption * ChipType.FIVE.getValue()) {
+                                if (player.getBalance() >= amountOption * ChipType.FIVE.getValue()) {
                                     player.addChip(ChipType.FIVE, amountOption);
                                     player.removeCashFromBalance(amountOption * ChipType.FIVE.getValue());
                                 } else {
@@ -122,7 +119,7 @@ public class Main {
                                 }
                                 break;
                             case 3:
-                                if (player.getBalance() > amountOption * ChipType.TEN.getValue()) {
+                                if (player.getBalance() >= amountOption * ChipType.TEN.getValue()) {
                                     player.addChip(ChipType.TEN, amountOption);
                                     player.removeCashFromBalance(amountOption * ChipType.TEN.getValue());
                                 } else {
@@ -132,7 +129,7 @@ public class Main {
                                 }
                                 break;
                             case 4:
-                                if (player.getBalance() > amountOption * ChipType.TWENTY_FIVE.getValue()) {
+                                if (player.getBalance() >= amountOption * ChipType.TWENTY_FIVE.getValue()) {
                                     player.addChip(ChipType.TWENTY_FIVE, amountOption);
                                     player.removeCashFromBalance(amountOption * ChipType.TWENTY_FIVE.getValue());
                                 } else {
@@ -142,7 +139,7 @@ public class Main {
                                 }
                                 break;
                             case 5:
-                                if (player.getBalance() > amountOption * ChipType.FIFTY.getValue()) {
+                                if (player.getBalance() >= amountOption * ChipType.FIFTY.getValue()) {
                                     player.addChip(ChipType.FIFTY, amountOption);
                                     player.removeCashFromBalance(amountOption * ChipType.FIFTY.getValue());
                                 } else {
@@ -152,7 +149,7 @@ public class Main {
                                 }
                                 break;
                             case 6:
-                                if (player.getBalance() > amountOption * ChipType.HUNDRED.getValue()) {
+                                if (player.getBalance() >= amountOption * ChipType.HUNDRED.getValue()) {
                                     player.addChip(ChipType.HUNDRED, amountOption);
                                     player.removeCashFromBalance(amountOption * ChipType.HUNDRED.getValue());
                                 } else {
@@ -162,7 +159,7 @@ public class Main {
                                 }
                                 break;
                             case 7:
-                                if (player.getBalance() > amountOption * ChipType.FIVE_HUNDRED.getValue()) {
+                                if (player.getBalance() >= amountOption * ChipType.FIVE_HUNDRED.getValue()) {
                                     player.addChip(ChipType.FIVE_HUNDRED, amountOption);
                                     player.removeCashFromBalance(amountOption * ChipType.FIVE_HUNDRED.getValue());
                                 } else {
@@ -172,7 +169,7 @@ public class Main {
                                 }
                                 break;
                             case 8:
-                                if (player.getBalance() > amountOption * ChipType.THOUSAND.getValue()) {
+                                if (player.getBalance() >= amountOption * ChipType.THOUSAND.getValue()) {
                                     player.addChip(ChipType.THOUSAND, amountOption);
                                     player.removeCashFromBalance(amountOption * ChipType.THOUSAND.getValue());
                                 } else {
@@ -188,6 +185,7 @@ public class Main {
                                 System.out.println("Invalid option");
                                 break;
                         }
+                        break;
                     case 2:
                         Main.clearScreen();
                         printSellChipPage(player);
@@ -196,7 +194,7 @@ public class Main {
                         int sellAmountOption = scanner.nextInt();
                         switch (sellValueOption) {
                             case 1:
-                                if (player.getChipAmount(ChipType.ONE) > sellAmountOption) {
+                                if (player.getChipAmount(ChipType.ONE) >= sellAmountOption) {
                                     player.removeChip(ChipType.ONE, sellAmountOption);
                                     player.addCashToBalance(sellAmountOption * ChipType.ONE.getValue());
                                 } else {
@@ -206,7 +204,7 @@ public class Main {
                                 }
                                 break;
                             case 2:
-                                if (player.getChipAmount(ChipType.FIVE) > sellAmountOption) {
+                                if (player.getChipAmount(ChipType.FIVE) >= sellAmountOption) {
                                     player.removeChip(ChipType.FIVE, sellAmountOption);
                                     player.addCashToBalance(sellAmountOption * ChipType.FIVE.getValue());
                                 } else {
@@ -216,7 +214,7 @@ public class Main {
                                 }
                                 break;
                             case 3:
-                                if (player.getChipAmount(ChipType.TEN) > sellAmountOption) {
+                                if (player.getChipAmount(ChipType.TEN) >= sellAmountOption) {
                                     player.removeChip(ChipType.TEN, sellAmountOption);
                                     player.addCashToBalance(sellAmountOption * ChipType.TEN.getValue());
                                 } else {
@@ -226,7 +224,7 @@ public class Main {
                                 }
                                 break;
                             case 4:
-                                if (player.getChipAmount(ChipType.TWENTY_FIVE) > sellAmountOption) {
+                                if (player.getChipAmount(ChipType.TWENTY_FIVE) >= sellAmountOption) {
                                     player.removeChip(ChipType.TWENTY_FIVE, sellAmountOption);
                                     player.addCashToBalance(sellAmountOption * ChipType.TWENTY_FIVE.getValue());
                                 } else {
@@ -236,7 +234,7 @@ public class Main {
                                 }
                                 break;
                             case 5:
-                                if (player.getChipAmount(ChipType.FIFTY) > sellAmountOption) {
+                                if (player.getChipAmount(ChipType.FIFTY) >= sellAmountOption) {
                                     player.removeChip(ChipType.FIFTY, sellAmountOption);
                                     player.addCashToBalance(sellAmountOption * ChipType.FIFTY.getValue());
                                 } else {
@@ -246,7 +244,7 @@ public class Main {
                                 }
                                 break;
                             case 6:
-                                if (player.getChipAmount(ChipType.HUNDRED) > sellAmountOption) {
+                                if (player.getChipAmount(ChipType.HUNDRED) >= sellAmountOption) {
                                     player.removeChip(ChipType.HUNDRED, sellAmountOption);
                                     player.addCashToBalance(sellAmountOption * ChipType.HUNDRED.getValue());
                                 } else {
@@ -256,7 +254,7 @@ public class Main {
                                 }
                                 break;
                             case 7:
-                                if (player.getChipAmount(ChipType.FIVE_HUNDRED) > sellAmountOption) {
+                                if (player.getChipAmount(ChipType.FIVE_HUNDRED) >= sellAmountOption) {
                                     player.removeChip(ChipType.FIVE_HUNDRED, sellAmountOption);
                                     player.addCashToBalance(sellAmountOption * ChipType.FIVE_HUNDRED.getValue());
                                 } else {
@@ -266,7 +264,7 @@ public class Main {
                                 }
                                 break;
                             case 8:
-                                if (player.getChipAmount(ChipType.THOUSAND) > sellAmountOption) {
+                                if (player.getChipAmount(ChipType.THOUSAND) >= sellAmountOption) {
                                     player.removeChip(ChipType.THOUSAND, sellAmountOption);
                                     player.addCashToBalance(sellAmountOption * ChipType.THOUSAND.getValue());
                                 } else {
@@ -282,6 +280,7 @@ public class Main {
                                 System.out.println("Invalid option");
                                 break;
                         }
+                        break;
                     default:
                         System.out.println("Invalid option");
                         break;
