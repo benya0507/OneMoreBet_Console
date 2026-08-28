@@ -47,6 +47,46 @@ public class Main {
 
 
     }
+
+    private static void printBuyChipPage(Player player) {
+        System.out.println("|-----------------------------------|");
+        System.out.println("|        Welcome, " + player.getName() + "!");
+        System.out.println("|-----------------------------------|");
+        System.out.println("|         Select chip value         |");
+        System.out.println("|-----------------------------------|");
+        System.out.println("| 1. 1$                             |");
+        System.out.println("| 2. 5$                             |");
+        System.out.println("| 3. 10$                            |");
+        System.out.println("| 4. 25$                            |");
+        System.out.println("| 5. 50$                            |");
+        System.out.println("| 6. 100$                           |");
+        System.out.println("| 7. 500$                           |");
+        System.out.println("| 8. 1000$                          |");
+        System.out.println("|-----------------------------------|");
+    }
+
+    private static void runStorePage(Player player, Scanner scanner){
+        printStoreChipPage(player);
+        if (scanner.hasNextInt()){
+            int option = scanner.nextInt();
+            switch (option) {
+                case 1:
+                    Main.clearScreen();
+                    printBuyChipPage(player);
+                    int valueOption = scanner.nextInt();
+                    switch (valueOption) {
+                        case 1:
+                            System.out.print("Enter the amount of chips you would like to buy: ");
+                            int amountOption = scanner.nextInt();
+                            if(player.getBalance() > amountOption*ChipType.ONE.getValue()){
+                                player.addChip(ChipType.ONE, amountOption);
+                                player.
+                            }
+                    }
+
+            }
+        }
+    }
     public static void main(String[] args) {
 
         Player player = new Player("Bence", 5000);
@@ -79,7 +119,7 @@ public class Main {
                     case 3:
                         Main.clearScreen();
                         System.out.println("Entering chip store...");
-                        //rest of the code
+                        runStorePage(player, sc);
                         break;
                     case 4:
                         Main.clearScreen();
@@ -93,20 +133,6 @@ public class Main {
             } else {
                 System.out.println("Invalid option, please enter a number 1-3");
                 sc.nextLine();
-            }
-        }
-
-        while (chipMenuIsRunning) {
-            printStoreChipPage(player);
-
-            if (sc.hasNextInt()) {
-                int option = sc.nextInt();
-                switch (option) {
-                    case 1:
-                        Main.clearScreen();
-                        System.out.println("How many chips would you like to buy?");
-                        //needs to be finished!!
-                }
             }
         }
         sc.close();
