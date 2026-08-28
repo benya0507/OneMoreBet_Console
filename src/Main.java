@@ -40,6 +40,7 @@ public class Main {
         System.out.println("|-----------------------------------|");
         System.out.println("| 1. Buy chips                      |");
         System.out.println("| 2. Sell chips                     |");
+        System.out.println("| 3. Exit to main menu              |");
         System.out.println("|-----------------------------------|");
 
 
@@ -280,6 +281,9 @@ public class Main {
                                 System.out.println("Invalid option");
                                 break;
                         }
+                        break;
+                    case 3:
+                        storePageIsRunning = false;
                         break;
                     default:
                         System.out.println("Invalid option");
