@@ -63,8 +63,10 @@ public class SlotMachine {
     public void bet(Player player, ChipType chipType, int amount){
         if (player.removeChip(chipType, amount)){
             System.out.println("Starting spin!");
-            player.addChip(chipType, spin()*amount);
-            System.out.println("You won " + spin()* chipType.getValue() + "chips");
+            int wonChipAmount = spin()*amount;
+            player.addChip(chipType, wonChipAmount);
+            System.out.println("You won " +  wonChipAmount + " chips");
+
         } else {
             System.out.println("Not enough chips");
         }

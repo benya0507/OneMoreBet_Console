@@ -341,8 +341,15 @@ public class Main {
                     //int totalCost = amountOfChips * selectedChip.getValue();
 
                     slotmachine.bet(player,selectedChip,amountOfChips);
-                    Thread.sleep(5000);
-                    gameIsRunning = false;
+                    System.out.println("Do you want to spin again with the same bet? Y/N");
+                    String answer = scanner.nextLine();
+                    if (answer.equalsIgnoreCase("Y")) {
+                        slotmachine.bet(player,selectedChip,amountOfChips);
+                    }else {
+
+                        Thread.sleep(5000);
+                        gameIsRunning = false;
+                    }
                 }
 
             }
@@ -373,7 +380,7 @@ public class Main {
                     case 2:
                         Main.clearScreen();
                         System.out.println("Entering balance page...");
-                        printBalancePage(player);
+                        printBalancePage(player, sc);
                         break;
                     case 3:
                         Main.clearScreen();
