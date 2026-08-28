@@ -62,6 +62,7 @@ public class Main {
         System.out.println("| 6. 100$                           |");
         System.out.println("| 7. 500$                           |");
         System.out.println("| 8. 1000$                          |");
+        System.out.println("| 9. Exit to main menu              |");
         System.out.println("|-----------------------------------|");
     }
 
@@ -80,6 +81,7 @@ public class Main {
             System.out.println("| 6. 100$                           |");
             System.out.println("| 7. 500$                           |");
             System.out.println("| 8. 1000$                          |");
+            System.out.println("| 9. Exit to main menu              |");
             System.out.println("|-----------------------------------|");
     }
 
@@ -172,6 +174,9 @@ public class Main {
                                     storePageIsRunning = false;
                                 }
                                 break;
+                            case 9:
+                                storePageIsRunning = false;
+                                break;
                             default:
                                 System.out.println("Invalid option");
                                 break;
@@ -254,6 +259,9 @@ public class Main {
                                     System.out.println("Insufficient balance, going back to main menu.");
                                     storePageIsRunning = false;
                                 }
+                                break;
+                            case 9:
+                                storePageIsRunning = false;
                                 break;
                             default:
                                 System.out.println("Invalid option");
