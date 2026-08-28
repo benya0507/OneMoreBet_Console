@@ -334,7 +334,6 @@ public class Main {
                     System.out.println("Write the amount of chips you want to bet of "+ ChipType.values()[option - 1]);
                     int amountOfChips = scanner.nextInt();
                     ChipType selectedChip = ChipType.values()[option - 1];
-                    //int totalCost = amountOfChips * selectedChip.getValue();
 
                     slotmachine.bet(player,selectedChip,amountOfChips);
                     System.out.println("Do you want to spin again with the same bet? Y/N");
@@ -354,7 +353,7 @@ public class Main {
     }
     public static void main(String[] args) throws InterruptedException {
 
-        Player player = new Player("Bence", 5000);
+        Player player = new Player("Bence", 5000); // you can set your name and start balance here
 
         SlotMachine sm = new SlotMachine();
 
