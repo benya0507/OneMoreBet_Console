@@ -33,7 +33,7 @@ public class Main {
             System.out.println("| Cash balance: " + player.getBalance());
             System.out.println("| Chip balance: " + player.calculateChipValue());
             System.out.println("|                                   |");
-            System.out.println("| 1. Exit game                      |");
+            System.out.println("| 1. Exit to menu                   |");
             System.out.println("|---------------------------------- |");
             if (scanner.hasNextInt()){
                 if (scanner.nextInt() == 1){
@@ -200,7 +200,7 @@ public class Main {
                         int sellAmountOption = 1;
                         int sellValueOption = scanner.nextInt();
                         if (sellValueOption >= 1 && sellValueOption <= 8) {
-                            System.out.print("Enter the amount of chips you would like to buy: ");
+                            System.out.print("Enter the amount of chips you would like to sell: ");
                             sellAmountOption = scanner.nextInt();
                         }else {
                             storePageIsRunning = false;
