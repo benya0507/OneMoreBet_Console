@@ -45,6 +45,11 @@ public class Player {
     public int getBalance() {
         return this.cashBalance;
     }
-
+    public void removeCashFromBalance(int amount) {
+        cashBalance -= amount;
+    }
+    public void addCashToBalance(int amount) {
+        cashBalance += amount;
+    }
 
 }
