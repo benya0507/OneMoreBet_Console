@@ -22,15 +22,25 @@ public class Main {
         System.out.println("|-----------------------------------|");
     }
 
-    private static void printBalancePage(Player player){
+    private static void printBalancePage(Player player, Scanner scanner){
 
-        System.out.println("         Welcome, " + player.getName() + "!");
-        System.out.println("|-----------------------------------|");
-        System.out.println("|           Your balance:           |");
-        System.out.println("|                                   |");
-        System.out.println("| Cash balance: " + player.getBalance());
-        System.out.println("| Chip balance: " + player.calculateChipValue());
-        System.out.println("|---------------------------------- |");
+        boolean balancePageRunning = true;
+        while (balancePageRunning) {
+            System.out.println("           Welcome, " + player.getName() + "!");
+            System.out.println("|-----------------------------------|");
+            System.out.println("|           Your balance:           |");
+            System.out.println("|                                   |");
+            System.out.println("| Cash balance: " + player.getBalance());
+            System.out.println("| Chip balance: " + player.calculateChipValue());
+            System.out.println("|                                   |");
+            System.out.println("| 1. Exit game                      |");
+            System.out.println("|---------------------------------- |");
+            if (scanner.hasNextInt()){
+                if (scanner.nextInt() == 1){
+                    balancePageRunning = false;
+                }
+            }
+        }
     }
     private static void printStoreChipPage(Player player){
 
